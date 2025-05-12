@@ -7,16 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
+        .offcanvas-title{
+            color: #be965a;
+        }
         .offcanvas-wide {
             width: 700px !important;
             max-width: 100%;
             padding: 3rem;
-        }
+            background: #f5f5f5;
+        }       
         .offcanvas-body {
             padding: 1rem;
         }
+        .btn{
+            border: 1px solid #be965a;
+        }
+
+        .checked{
+            background-color: #be965a !important;
+            color: white !important;
+            border-color: #be965a !important;
+        }
         .btn-outline-warning {
-            color: #856404;
+            color: var(--color-orange);
             border-color: #856404;
         }
         .btn-outline-warning:hover {
@@ -73,10 +86,10 @@
                 <div class="btn-group d-flex flex-wrap mb-2" role="group">
                     @foreach ([10, 25, 50, 100, 250, 500, 1000] as $amount)
                         <input type="radio" class="btn-check" name="amount" id="btn-amount-{{ $amount }}" value="{{ $amount }}" {{ $amount == 25 ? 'checked' : '' }}>
-                        <label class="btn btn-outline-warning m-1" for="btn-amount-{{ $amount }}">${{ $amount }}</label>
+                        <label class="btn m-1 {{ $amount == 25 ? 'checked' : '' }}" for="btn-amount-{{ $amount }}">${{ $amount }}</label>
                     @endforeach
                     <input type="radio" class="btn-check" name="amount" id="btn-other" value="other">
-                    <label class="btn btn-outline-secondary m-1" for="btn-other">Other</label>
+                    <label class="btn m-1" for="btn-other">Other</label>
                 </div>
 
                 <textarea name="message" class="form-control mb-2" placeholder="+ Add a message (optional)"></textarea>
